@@ -1,8 +1,8 @@
 PROG = main.exe 
-SRC = main.cpp 
-CC=g++
+SRC = main.cpp vat.cpp
 CFLAGS = -g
 LIBS = 
+CC=g++
 
 all: $(PROG)
 

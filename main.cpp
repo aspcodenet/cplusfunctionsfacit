@@ -1,94 +1,106 @@
 #include <iostream>
 #include <string>
-#include <cctype>
-#include <tuple>
+#include "vat.h"
+//#include <string.h> // H file contains "declarations" 
+         // char * strcpy(char * _dst, const char *__src);
+         // FUNCTION HEADER
+         //
+
+
 using namespace std;
 
-string getAgeMessage(int birthYear){
-    if(birthYear < 1973 ) return "No worry, you are still young";
-    if(birthYear == 1973 ) return "You are born the same year as Peter Forsberg";
-    return "You are much younger than the C programming language";
-}
-string generateName(string firstName, string lastName){
-    return firstName + " " + lastName;
-}
+// int anyg(asd)
 
-/*
-Create a function taking a string as parameter. Call it countNumbers. It should  return the number of numbers inside the string.
+// functions
+ // - ensure DRY - dont repeat yourself
+// - great as documentation
+// - great as abstraction
 
-countNumbers(”hej12 what 1 yes”)  
-should return 3
-*/
 
-int countNumbers(string input){
-    int count = 0;
-    for(char ch : input){
-        if(isdigit(ch)){
-            count++;
-        }
-    }
-    return count;
+// X -> 1000
+inline int test(int *x, int y, int z){
+    double *f = (double *)x;
+    *f=232234.0;
+   //*x = 1;
+   cout << x;
+   return 0;
 }
 
 
-bool isWoman(string personalNumber){
-    char chSecondLast = personalNumber[personalNumber.length()-2];
-    return chSecondLast == '1' || chSecondLast == '3' || chSecondLast == '5' ||
-        chSecondLast == '7' || chSecondLast == '9';
+inline int test2(int &x, int y, int z){
+   char namn[256];
+
+   int a;
+   int arr[100];
+
+   x = 1;
+   cout << x;
+   return 0;
 }
 
-tuple<string,int> findLongestWord(string allStrings[], int size){
-    string longestSofar = "";
-    for(int i = 0; i < size; i++){
-        if (allStrings[i].length() > longestSofar.length())
-            longestSofar = allStrings[i];
-    }
-    return {longestSofar, longestSofar.length()};
+//abs
+int ourAbsolute(int input){
+   if(input < 0){
+      return -input;
+   }
+   return input;
 }
 
 
-
-
-
+float ourAbsolute(float input){
+   if(input < 0){
+      return -input;
+   }
+   return input;
+}
 
 int main(){
-    string allStrings[] = {
-        "Stefan","Oliver", "Josefine"
-    };
+   int n;
+   cout << "Enter a value:";
+   cin >> n;
+   n = ourAbsolute(n);
+   cout << n;
 
-    for(string part : allStrings){
-        cout << part;
-    }
-
-
-    auto [theLongestString, theLenghth] =  findLongestWord(allStrings, 3);
-    cout << theLongestString << theLenghth << endl;
-
-
-    bool i = isWoman("1213123132");
+   float f;
+   cout << "Enter a value:";
+   cin >> f;
+   f = ourAbsolute(f);
+   cout << f;
 
 
-    string theString; 
-    cout << "Enter a string:";
-    getline(cin,theString);
-    //int count = countNumbers(theString) << endl;
-    cout << countNumbers(theString) << endl;
 
 
-    string firstName; 
-    string lastName;
-    cout << "Firstname:";
-    getline(cin,firstName);
-    cout << "Lastname:";
-    getline(cin,lastName);
-    string fullName = generateName(firstName,lastName);
-    cout << fullName << endl;
+   string name = "Stefan";
+   string extra;
+   cin >> extra;
+   name += extra;
+   int  aaa[13];
+
+   cin >> extra;
+   name += extra;
 
 
-    int birthYear;
-    cout << "Enter birthyear:";
-    cin >> birthYear;
-    
-    string result = getAgeMessage(birthYear);
-    return 0;
+   int x = 12, y = 12, z = 13;
+//   int result = test(&x,y,z); // & = address off
+   int result = test2(x,y,z); // & = address off
+   cout << x << endl;
+   
+   cout << result << endl;
+
+
+   // char test[100];
+   // //strcpy(test, "Hello");
+   // int price = 100;
+   // float percentVat = 0.25f;
+   // float result2 = calculateVat(price,0.12f);
+   // float result3 = calculateVat(price,0.25f);
+   // float result = calculateVat(price);
+   // cout << result << endl;
+   return 0;
 }
+
+// FUNCTION  HEADER = declaration - DECLARES return value type, NAME, parameters datatypes
+// FUNCTION BODY
+// FUNCTION HEADER COULD ALSO BE PLACED SOMEWHERE ELSE
+
+
